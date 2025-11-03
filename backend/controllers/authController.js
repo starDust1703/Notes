@@ -45,7 +45,8 @@ const login = async (req, res) => {
                 success: true,
                 token,
                 email,
-                name: user.name
+                name: user.name,
+                userID: user._id,
             })
     } catch (err) {
         res.status(500)

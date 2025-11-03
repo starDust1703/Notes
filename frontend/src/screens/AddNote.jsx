@@ -7,8 +7,25 @@ const AddNote = () => {
   const [title, setTitle] = useState("");
   const [note, setNote] = useState("");
 
-  const addNote = () => {
-    //add note to db
+  const addNote = async () => {
+    try {
+      const url = "http://localhost:8080/notes/addNote";
+      const response = await fetch(url, {
+        method: "POST",
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': localStorage.getItem('token')
+        },
+        body: JSON.stringify({
+          title: (!title && note) ? "Untitled" : title,
+          note
+        })
+      });
+      const result = await response.json();
+    } catch (error) {
+      console.log("Error Adding Note:", error);
+    }
+    
     setTitle("");
     setNote("");
     navigate("/");

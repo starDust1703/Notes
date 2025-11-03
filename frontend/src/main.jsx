@@ -6,6 +6,9 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import AddNote from './screens/AddNote.jsx';
+import Login from './screens/Login.jsx';
+import Signup from './screens/Signup.jsx';
+import FileNotFound from './screens/FileNotFound.jsx';
 
 const router = createBrowserRouter([
   {
@@ -13,8 +16,20 @@ const router = createBrowserRouter([
     element: <App />,
   },
   {
-    path: "/add",
+    path: "/addNote",
     element: <AddNote/>
+  },
+  {
+    path: "/login",
+    element: <Login/>
+  },
+  {
+    path: "/signup",
+    element: <Signup/>
+  },
+  {
+    path: "*",
+    element: <FileNotFound/>
   }
 ]);
 

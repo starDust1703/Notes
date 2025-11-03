@@ -20,7 +20,7 @@ On your terminal, run the following commands:
 ## App Workflow
 
 ### /backend
-index.js -> express routers -> middlewares -> controllers -> database
+server.js -> express routers -> middlewares -> controllers -> database
 
 ### /frontend
 Auth -> (signup\login) -> home -> addNote

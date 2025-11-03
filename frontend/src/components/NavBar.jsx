@@ -9,7 +9,7 @@ const NavBar = () => {
 	return (
 		<div className="bg-amber-300 p-2 flex justify-between items-center pl-4">
 			<p id="title" className="text-3xl font-(family-name:--my-font)bg-amber-200 p-3">My Notes</p>
-			<NavLink to='/add'>
+			<NavLink to='/addNote'>
 				<IoAdd
 					className="w-10 h-10 active:scale-90 duration-200 active:rotate-45 block transition"
 				/>
