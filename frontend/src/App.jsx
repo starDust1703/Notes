@@ -24,6 +24,9 @@ const App = () => {
         console.log("Internal Server Error:", error);
     }
   }
+  const editNote = () => {
+    
+  }
   const deleteNote = async (id) => {
     try {
       const url = `http://localhost:8080/notes/${id}`;
@@ -53,7 +56,9 @@ const App = () => {
                 <pre className="truncate min-w-20 w-fill">{note.note}</pre>
               </div>
               <div className="flex flex-col gap-4 items-center">
-              <LuPencil className="size-5" />
+              <LuPencil className="size-5 hover:text-amber-300 cursor-pointer" onClick={() => {
+                editNote()
+              }}/>
               <MdDelete className="size-6 cursor-pointer hover:text-red-600" onClick={() => deleteNote(note._id)} />
               </div>
             </div>

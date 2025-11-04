@@ -9,13 +9,10 @@
 ### How to run the app:
 On your terminal, run the following commands:
 1. `git clone https://github.com/starDust1703/Notes.git`
-2. `cd Notes\frontend`
+2. `cd Notes`
 3. `npm install`
-4. `cd..`
-5. `cd backend`
-6. `npm install`
-7. `npm run dev`
-8. On your browser, open http://localhost:8080
+4. `npm run dev`
+5. On your browser, open http://localhost:3000
 
 ## App Workflow
 
@@ -23,4 +20,4 @@ On your terminal, run the following commands:
 server.js -> express routers -> middlewares -> controllers -> database
 
 ### /frontend
-Auth -> (signup\login) -> home -> addNote
+Auth -> signup -> login -> home -> addNote

@@ -26,7 +26,7 @@ const Login = () => {
             localStorage.setItem('token', result.token);
             localStorage.setItem('userID', JSON.stringify(result.userID));
         }catch (error) {
-            console.log("Error occurred while signing up:", error);
+            console.log("Error occurred while logging in:", error);
         }
     }
     return (

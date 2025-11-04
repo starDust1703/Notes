@@ -7,5 +7,5 @@ mongoose.connect(mongoURL)
 .then(() => {
     console.log("MongoDB connected")
 }).catch((err) => {
-    console.log("Error")
+    console.log("DB connection Error")
 })
