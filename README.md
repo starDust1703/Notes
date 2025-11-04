@@ -12,7 +12,8 @@ On your terminal, run the following commands:
 2. `cd Notes`
 3. `npm install`
 4. `npm run dev`
-5. On your browser, open http://localhost:3000
+5. In backend folder, create a '.env' file containing `PORT = 8080`, `MONGO_CONN = "your_mongo_string"`, & `JWT_secret = "custom secret"`
+6. On your browser, open http://localhost:3000
 
 ## App Workflow
 
