@@ -24,6 +24,7 @@ const Login = () => {
             if (!result.success) alert(result.message);
 
             localStorage.setItem('token', result.token);
+            localStorage.setItem('name', result.name);
             localStorage.setItem('userID', JSON.stringify(result.userID));
         }catch (error) {
             console.log("Error occurred while logging in:", error);

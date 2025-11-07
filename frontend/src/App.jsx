@@ -2,6 +2,7 @@ import NavBar from "./components/NavBar"
 import { useEffect, useState } from "react";
 import { MdDelete } from "react-icons/md";
 import { LuPencil } from "react-icons/lu";
+import { NavLink } from "react-router-dom";
 
 const App = () => {
   const [notes, setNotes] = useState([]);
@@ -24,9 +25,6 @@ const App = () => {
         console.log("Internal Server Error:", error);
     }
   }
-  const editNote = () => {
-    
-  }
   const deleteNote = async (id) => {
     try {
       const url = `http://localhost:8080/notes/${id}`;
@@ -45,26 +43,36 @@ const App = () => {
   }
 
   return (
-    <div>
-      <NavBar />
-      <div className="w-full flex-col justify-center p-4">
-        {(notes.length) ?
+    <div className="absolute w-full">
+      <div className="fixed w-full">
+        <NavBar />
+      </div>
+
+      <div className="justify-center p-4 mt-20 w-full">
+        {notes.length ? (
           notes.map((note) => (
-            <div key={note._id} className="border-2 rounded-2xl p-4 m-4 flex justify-between items-center">
-              <div className="w-9/10">
-                <p className="text-2xl truncate min-w-20 w-9/10">{note.title}</p>
-                <pre className="truncate min-w-20 w-fill">{note.note}</pre>
+            <div
+              key={note._id}
+              className="border-2 rounded-2xl p-4 m-4 flex justify-between items-center"
+            >
+              <div className="w-4/5">
+                <p className="text-2xl truncate">{note.title}</p>
+                <pre className="truncate w-full">{note.note}</pre>
               </div>
               <div className="flex flex-col gap-4 items-center">
-              <LuPencil className="size-5 hover:text-amber-300 cursor-pointer" onClick={() => {
-                editNote()
-              }}/>
-              <MdDelete className="size-6 cursor-pointer hover:text-red-600" onClick={() => deleteNote(note._id)} />
+                <NavLink to={`/notes/${note._id}`}>
+                  <LuPencil className="size-5 hover:text-amber-300 cursor-pointer" />
+                </NavLink>
+                <MdDelete
+                  className="size-6 cursor-pointer hover:text-red-600"
+                  onClick={() => deleteNote(note._id)}
+                />
               </div>
             </div>
-          )
-          ) : <p>No Notes Found</p>
-        }
+          ))
+        ) : (
+          <p>No Notes Found</p>
+        )}
       </div>
     </div>
   )

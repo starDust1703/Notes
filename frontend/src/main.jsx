@@ -3,12 +3,14 @@ import './index.css'
 import App from './App.jsx'
 import {
   createBrowserRouter,
+  Navigate,
   RouterProvider,
 } from "react-router-dom";
 import AddNote from './screens/AddNote.jsx';
 import Login from './screens/Login.jsx';
 import Signup from './screens/Signup.jsx';
 import FileNotFound from './screens/FileNotFound.jsx';
+import Notes from './screens/Notes.jsx';
 
 const router = createBrowserRouter([
   {
@@ -20,6 +22,18 @@ const router = createBrowserRouter([
     element: <AddNote/>
   },
   {
+    path: "/notes/:id",
+    element: <Notes/>
+  },
+  {
+    path: "*",
+    element: <Navigate to={'/'}/>
+  },
+  {
+    path: "/:somthing/:dubj",
+    element: <FileNotFound/>
+  },
+  {
     path: "/login",
     element: <Login/>
   },
@@ -27,10 +41,6 @@ const router = createBrowserRouter([
     path: "/signup",
     element: <Signup/>
   },
-  {
-    path: "*",
-    element: <FileNotFound/>
-  }
 ]);
 
 createRoot(document.getElementById('root')).render(
